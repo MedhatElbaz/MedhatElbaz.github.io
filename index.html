@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="Professional portfolio of Medhat Elbaz – Penetration Tester & Vulnerability Discovery Specialist. Certified expert in offensive security.">
+  <title>Medhat Elbaz | Penetration Tester & Security Researcher</title>
+  <!-- Google Fonts + Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000000;  /* pure black background */
+      color: #ffffff;       /* all main text white */
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* header / nav - green/black theme (header stays green accent) */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid #1a3a1a;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #a0ffa0, #2ecc2e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #ffffff;
+      transition: color 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #2ecc2e;
+    }
+
+    /* hero section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      padding: 4rem 0 3rem 0;
+    }
+
+    .hero-content {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(46, 204, 46, 0.12);
+      color: #2ecc2e;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      border: 0.5px solid rgba(46, 204, 46, 0.4);
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, #2ecc2e, #1f8a1f);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 8px rgba(46,204,46,0.3);
+    }
+
+    .hero-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #cccccc;
+      margin-bottom: 1.2rem;
+      border-left: 3px solid #2ecc2e;
+      padding-left: 1rem;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      color: #ffffff;
+      margin-bottom: 2rem;
+      max-width: 90%;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary {
+      background: #2ecc2e;
+      color: #000000;
+      box-shadow: 0 4px 12px rgba(46,204,46,0.3);
+    }
+
+    .btn-primary:hover {
+      background: #23a523;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,204,46,0.5);
+      color: #000000;
+    }
+
+    .btn-outline {
+      border: 1.5px solid #2ecc2e;
+      background: transparent;
+      color: #ffffff;
+    }
+
+    .btn-outline:hover {
+      border-color: #5eff5e;
+      background: rgba(46,204,46,0.1);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+
+    /* profile image */
+    .hero-image {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-frame {
+      background: linear-gradient(145deg, #0a1f0a, #051205);
+      border-radius: 2rem;
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.8), 0 0 0 1px #2ecc2e33;
+      padding: 0.6rem;
+      border: 1px solid #2ecc2e;
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 1.5rem;
+      background: #0a120a;
+      display: block;
+      margin: 0 auto;
+      filter: grayscale(0.1) contrast(1.05);
+    }
+
+    /* section common */
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #1a3a1a;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      letter-spacing: -0.3px;
+      color: #ffffff;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 70%;
+      height: 3px;
+      background: #2ecc2e;
+      border-radius: 3px;
+    }
+
+    /* skills & certs */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: #0a1a0a;
+      border: 1px solid #2ecc2e;
+      padding: 0.45rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      color: #ffffff;
+    }
+
+    .skill-tag:hover {
+      border-color: #5eff5e;
+      background: #143014;
+      transform: translateY(-2px);
+    }
+
+    /* cards for experience, training */
+    .exp-grid, .training-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: #0a120a;
+      border-radius: 1.5rem;
+      padding: 1.6rem;
+      border: 1px solid #2ecc2e33;
+      transition: all 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #2ecc2e;
+      box-shadow: 0 15px 25px -12px rgba(46,204,46,0.2);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: #ffffff;
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: #aaaaaa;
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .card p {
+      color: #ffffff;
+      font-size: 0.92rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .icon-glow {
+      color: #2ecc2e;
+      margin-right: 0.3rem;
+    }
+
+    /* about section */
+    .about-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-text {
+      flex: 2;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #ffffff;
+    }
+
+    .highlight-box {
+      background: #0a1a0a;
+      padding: 1rem 1.5rem;
+      border-radius: 1.2rem;
+      margin: 1.2rem 0;
+      border-left: 4px solid #2ecc2e;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    /* contact & footer */
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      background: #080e08;
+      border-radius: 2rem;
+      padding: 2rem;
+      border: 1px solid #2ecc2e44;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    .contact-details {
+      margin-top: 1rem;
+    }
+
+    .contact-details p {
+      margin: 0.7rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      color: #ffffff;
+    }
+
+    .contact-icon {
+      width: 34px;
+      font-size: 1.2rem;
+      color: #2ecc2e;
+      text-align: center;
+    }
+
+    .social-links {
+      margin-top: 1.8rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      text-decoration: none;
+      font-weight: 500;
+      color: #ffffff;
+      border: 1px solid #2ecc2e;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-link i {
+      font-size: 1.1rem;
+    }
+
+    .social-link:hover {
+      background: #2ecc2e;
+      color: #000000;
+      border-color: #2ecc2e;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0 3rem;
+      color: #aaaaaa;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .hero-description {
+        max-width: 100%;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .section-title:after {
+        width: 40%;
+      }
+    }
+
+    /* custom scrollbar green */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a120a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2ecc2e;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #23a523;
+    }
+
+    /* additional text fixes */
+    .contact-info p, .contact-info h3, .contact-info .contact-details p {
+      color: #ffffff;
+    }
+    .contact-flex .contact-info p:first-of-type {
+      color: #dddddd;
+    }
+    .btn-outline, .btn-primary {
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- navigation -->
+    <nav class="navbar">
+      <div class="logo">Medhat Elbaz</div>
+      <ul class="nav-links">
+        <li><a href="#home"><i class="fas fa-shield-alt" style="margin-right: 6px;"></i>Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section with Name & Picture -->
+    <section id="home">
+      <div class="hero">
+        <div class="hero-content">
+          <span class="hero-badge"><i class="fas fa-bug"></i>  Offensive Security · Red Team Specialist</span>
+          <h1>Medhat <span class="hero-highlight">Elbaz</span></h1>
+          <div class="hero-title">Penetration Tester | Vulnerability Hunter | Cybersecurity Analyst</div>
+          <p class="hero-description">
+            Ethical hacker with a sharp eye for discovering hidden vulnerabilities. I combine academic foundation from the Faculty of Computers and Information, hands-on experience from ITI, and advanced training from DigiLians & Al-Rawad Al-Qamiyun to help organizations secure their critical assets.
+          </p>
+          <div class="btn-group">
+            <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i>  Contact me</a>
+            <a href="#experience" class="btn btn-outline"><i class="fas fa-code-branch"></i>  Explore journey</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="profile-frame">
+            <!-- Professional hacker-themed portrait with initials - green/black style -->
+            <img class="profile-img" 
+                 src="profile.jpg"
+                 alt="Medhat Elbaz - Penetration Tester profile picture">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About + Academic & Core Philosophy -->
+    <section id="about">
+      <div class="about-wrapper">
+        <div class="about-text">
+          <h2 class="section-title">About the hacker behind the shell</h2>
+          <p>I'm <strong>Medhat Elbaz</strong>, a dedicated penetration tester and vulnerability researcher with a deep passion for breaking things to make them stronger. My journey started at the <strong>Faculty of Computers and Information</strong>, where I developed a strong foundation in computer science, networks, and information security fundamentals.</p>
+          <p>Later, I sharpened my offensive security skills at the <strong>Information Technology Institute (ITI)</strong> — one of Egypt's most prestigious tech training hubs — where I mastered real-world ethical hacking methodologies, exploit development, and security assessments.</p>
+          <div class="highlight-box">
+            <i class="fas fa-skull-crossbones" style="margin-right: 10px; color:#2ecc2e;"></i> 
+            <strong>Vulnerability discovery specialist</strong> — Trained by <strong>DigiLians</strong> (advanced offensive security) & <strong>Al-Rawad Al-Qamiyun</strong> (cutting-edge bug hunting techniques). I live for the thrill of uncovering zero-day flaws and securing modern infrastructures.
+          </div>
+          <p>Currently focused on web application penetration testing, red team engagements, and cloud security research. I also contribute to responsible disclosure programs and mentor newcomers in the cybersecurity field.</p>
+        </div>
+        <div style="flex:1; min-width: 220px;">
+          <div class="skills-grid">
+            <span class="skill-tag"><i class="fas fa-terminal"></i> Web App Pentesting</span>
+            <span class="skill-tag"><i class="fas fa-network-wired"></i> Network Security</span>
+            <span class="skill-tag"><i class="fas fa-database"></i> SQLi / NoSQLi</span>
+            <span class="skill-tag"><i class="fas fa-code"></i> Burp Suite / Metasploit</span>
+            <span class="skill-tag"><i class="fas fa-cloud"></i> Cloud Security (AWS/Azure)</span>
+            <span class="skill-tag"><i class="fas fa-lock"></i> Privilege Escalation</span>
+            <span class="skill-tag"><i class="fas fa-bug"></i> Bug Bounty Hunting</span>
+            <span class="skill-tag"><i class="fas fa-shield-haltered"></i> Red Teaming</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience">
+      <h2 class="section-title">Hands-on experience & roles</h2>
+      <div class="exp-grid">
+        <div class="card">
+          <h3><i class="fas fa-user-secret icon-glow"></i> Junior Penetration Tester</h3>
+          <div class="card-meta"><i class="far fa-calendar-alt"></i> 2023 – Present · Cyfence Security (Contract)</div>
+          <p>Conduct internal and external infrastructure penetration tests, web application assessments, and social engineering simulations. Discovered 20+ critical vulnerabilities, reducing client risk exposure by 35%.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fas fa-laptop-code icon-glow"></i> Security Analyst Intern (ITI Program)</h3>
+          <div class="card-meta"><i class="far fa-calendar-alt"></i> 2022 – 2023 · ITI Cybersecurity Track</div>
+          <p>Completed intensive 9-month hands-on training: vulnerability assessment, exploit development, CTF competitions, and reporting. Collaborated on security automation scripts and responsible disclosure labs.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fas fa-graduation-cap icon-glow"></i> Faculty Research Assistant</h3>
+          <div class="card-meta"><i class="far fa-calendar-alt"></i> Faculty of Computers & Information · 2021-2022</div>
+          <p>Assisted professors in network security research, analyzed malware samples, and built a prototype IDS using Python. Mentored junior students in ethical hacking fundamentals.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specialized Training: DigiLians & Al-Rawad Al-Qamiyun -->
+    <section id="training">
+      <h2 class="section-title">Specialized training & certifications</h2>
+      <div class="training-grid">
+        <div class="card">
+          <h3><i class="fas fa-bolt"></i> DigiLians Advanced Pentesting</h3>
+          <div class="card-meta"><i class="fas fa-trophy"></i> Vulnerability Discovery & Exploitation</div>
+          <p>Rigorous training focused on modern web attacks, API hacking, advanced privilege escalation, and crafting custom payloads. Achieved top 10% in final assessment labs.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fas fa-star-of-life"></i> Al-Rawad Al-Qamiyun — Elite Bug Hunter</h3>
+          <div class="card-meta"><i class="fas fa-chart-line"></i> Advanced Vulnerability Research</div>
+          <p>Mastered real-world bug bounty techniques: business logic flaws, race conditions, SSRF to RCE chains, and advanced reconnaissance. Participated in private programs with measurable impact.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fas fa-university"></i> Information Technology Institute (ITI)</h3>
+          <div class="card-meta"><i class="fas fa-certificate"></i> Cybersecurity & Ethical Hacking Diploma</div>
+          <p>Official track covering: network security, cryptography, secure coding, incident handling, and penetration testing standards (PTES, OWASP). Graduated with honors.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fas fa-microchip"></i> Faculty of Computers & Information</h3>
+          <div class="card-meta">Bachelor's Degree in Computer Science (Cybersecurity Major)</div>
+          <p>Core coursework: Operating systems security, digital forensics, ethical hacking, and information assurance. Graduated with distinction and a security research thesis.</p>
+        </div>
+      </div>
+      <div style="margin-top: 2rem; background: #0a150a; border-radius: 1rem; padding: 1rem 1.5rem; border-left: 4px solid #2ecc2e;">
+        <i class="fas fa-shield-virus" style="margin-right: 12px; color: #2ecc2e;"></i> 
+        <strong>Continuous learning:</strong> Currently preparing for OSCP certification & cloud security (CCSP). Active on HackerOne & Bugcrowd under responsible disclosure.
+      </div>
+    </section>
+
+    <!-- Contact Section with updated email, phone, WhatsApp icon and LinkedIn -->
+    <section id="contact">
+      <div class="contact-flex">
+        <div class="contact-info">
+          <h3><i class="fas fa-flag-checkered"></i> Let's secure your perimeter</h3>
+          <p style="margin-top: 0.6rem; color:#dddddd;">Interested in a penetration test, security consultation, or collaboration? I'm open to freelance projects and red team assignments.</p>
+          <div class="contact-details">
+            <p><span class="contact-icon"><i class="fas fa-envelope"></i></span> medhatelbaz2@gmail.com</p>
+            <p><span class="contact-icon"><i class="fas fa-phone-alt"></i></span> 01028846518</p>
+            <p><span class="contact-icon"><i class="fab fa-whatsapp"></i></span> <strong>WhatsApp:</strong> 01028846518</p>
+          </div>
+          <div class="social-links">
+            <!-- WhatsApp icon with direct link -->
+            <a href="https://wa.me/201028846518" target="_blank" class="social-link" style="background: rgba(46,204,46,0.1);">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <!-- LinkedIn icon with the exact profile link -->
+            <a href="https://www.linkedin.com/in/medhatelbaz/" target="_blank" class="social-link">
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+            <a href="https://github.com/MedhatElbaz" target="_blank" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://hackerone.com/medhatelbaz" target="_blank" class="social-link"><i class="fas fa-bug"></i> HackerOne</a>
+          </div>
+        </div>
+        <div style="flex:1; background:#080e08; border-radius: 1.5rem; padding: 1.5rem; border: 1px solid #2ecc2e44;">
+          <p style="font-weight: 600; margin-bottom: 1rem; color: #ffffff;"><i class="fas fa-pen-fancy"></i> Quick inquiry</p>
+          <form action="#" method="post" style="display: flex; flex-direction: column; gap: 1rem;">
+            <input type="text" placeholder="Full name" style="padding: 12px 16px; border-radius: 40px; border: 1px solid #2ecc2e; background: #000000; color: #ffffff; font-family: inherit; outline: none;">
+            <input type="email" placeholder="Email address" style="padding: 12px 16px; border-radius: 40px; border: 1px solid #2ecc2e; background: #000000; color: #ffffff; font-family: inherit; outline: none;">
+            <textarea rows="3" placeholder="Describe your security needs or project..." style="padding: 12px 16px; border-radius: 1.2rem; border: 1px solid #2ecc2e; background: #000000; color: #ffffff; font-family: inherit; resize: vertical; outline: none;"></textarea>
+            <button type="submit" class="btn btn-primary" style="background:#2ecc2e; border:none; cursor:pointer; color:#000000;"><i class="fas fa-paper-plane"></i> Send encrypted message</button>
+          </form>
+          <p style="font-size: 0.7rem; margin-top: 0.8rem; color:#aaaaaa;">🔐 PGP fingerprint available on request — your security is my priority.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p><i class="fas fa-shield-haltered"></i> Medhat Elbaz – Penetration Tester & Vulnerability Hunter</p>
+      <p style="margin-top: 0.4rem;">“Every system has a flaw. My mission: find it before the adversary does.”</p>
+      <p style="margin-top: 0.8rem; font-size: 0.7rem;">© 2025 — Ethical hacking for a safer digital world</p>
+    </footer>
+  </div>
+  <!-- smooth scrolling script -->
+  <script>
+    (function() {
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === "#" || targetId === "") return;
+          const targetElem = document.querySelector(targetId);
+          if (targetElem) {
+            e.preventDefault();
+            targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
