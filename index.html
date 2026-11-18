@@ -242,6 +242,16 @@
     .bar-track { height: 10px; background: rgba(255,255,255,.05); border-radius: 999px; overflow: hidden; border: 1px solid rgba(53,211,53,.12); }
     .bar-fill { height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--green), var(--green-2)); box-shadow: 0 0 18px rgba(53,211,53,.28); transition: width 1.4s cubic-bezier(.2,.8,.2,1); }
 
+    
+    .certificate-grid { grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
+    .certificate-card { display: flex; flex-direction: column; min-height: 340px; position: relative; overflow: hidden; }
+    .certificate-card::before { content: ""; position: absolute; width: 190px; height: 190px; border-radius: 50%; background: rgba(53,211,53,.07); filter: blur(35px); right: -80px; top: -80px; pointer-events: none; }
+    .cert-icon { width: 58px; height: 58px; display: grid; place-items: center; border-radius: 18px; color: var(--green-2); background: rgba(53,211,53,.09); border: 1px solid var(--border); font-size: 1.35rem; margin-bottom: 1rem; box-shadow: 0 0 26px rgba(53,211,53,.08); }
+    .certificate-card .card-meta { margin-bottom: .8rem; }
+    .certificate-card h3 { line-height: 1.4; }
+    .certificate-card p { margin-bottom: 1.3rem; }
+    .cert-btn { margin-top: auto; width: fit-content; font-size: .86rem; padding: .78rem 1.1rem; }
+
     .grid-cards { display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
     .card {
       border-radius: 24px; padding: 1.5rem; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; transform-style: preserve-3d;
@@ -497,18 +507,27 @@
 
     <section id="training">
       <div class="section-header reveal">
-        <span class="section-eyebrow"><i class="fas fa-certificate"></i> Certifications & Training</span>
-        <h2 class="section-title">Certifications, courses & hands-on learning</h2>
-        <p class="section-subtitle">Cybersecurity learning milestones and practical training, with certification status clearly represented.</p>
+        <span class="section-eyebrow"><i class="fas fa-certificate"></i> Certifications & Credentials</span>
+        <h2 class="section-title">Verified learning & security credentials</h2>
+        <p class="section-subtitle">Explore certificates and training milestones through their original verification pages.</p>
+      </div>
+      <div class="grid-cards certificate-grid">
+        <div class="card reveal tilt-card certificate-card"><div class="cert-icon"><i class="fas fa-shield-halved"></i></div><div class="card-meta"><span class="mini-badge">Credly</span><span class="mini-badge">Verified Badge</span></div><h3>Introduction to Cybersecurity</h3><p>Core cybersecurity concepts, security awareness, and foundational knowledge.</p><a class="btn btn-outline magnetic cert-btn" href="https://www.credly.com/badges/b535618d-3c1e-47aa-bbc2-dd9b2eceda5c/linked_in_profile" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> View Certificate</a></div>
+        <div class="card reveal tilt-card certificate-card"><div class="cert-icon"><i class="fas fa-user-secret"></i></div><div class="card-meta"><span class="mini-badge">Credly</span><span class="mini-badge">Verified Badge</span></div><h3>Ethical Hacker</h3><p>Ethical hacking concepts, attack methodology, reconnaissance, and security testing fundamentals.</p><a class="btn btn-outline magnetic cert-btn" href="https://www.credly.com/badges/25a2b502-7dee-4658-840e-96855c86e57f/linked_in_profile" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> View Certificate</a></div>
+        <div class="card reveal tilt-card certificate-card"><div class="cert-icon"><i class="fas fa-globe"></i></div><div class="card-meta"><span class="mini-badge">INE</span><span class="mini-badge">Credential</span></div><h3>eWPTX — Web Application Penetration Tester eXtreme</h3><p>Web application penetration testing credential focused on practical testing methodology.</p><a class="btn btn-outline magnetic cert-btn" href="https://certs.ine.com/74400342-b38d-465b-9718-e96f9391fc18#acc.1VyXm9Nn" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> View Certificate</a></div>
+        <div class="card reveal tilt-card certificate-card"><div class="cert-icon"><i class="fas fa-terminal"></i></div><div class="card-meta"><span class="mini-badge">TryHackMe</span><span class="mini-badge">Certificate</span></div><h3>TryHackMe Certificate</h3><p>Credential ID: THM-LCFBWBDUAW</p><a class="btn btn-outline magnetic cert-btn" href="https://tryhackme.com/certificate/THM-LCFBWBDUAW" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> View Certificate</a></div>
+        <div class="card reveal tilt-card certificate-card"><div class="cert-icon"><i class="fas fa-lock"></i></div><div class="card-meta"><span class="mini-badge">TryHackMe</span><span class="mini-badge">Certificate</span></div><h3>TryHackMe — Pre Security</h3><p>Credential ID: THM-JHGP5RNBYC</p><a class="btn btn-outline magnetic cert-btn" href="https://tryhackme.com/certificate/THM-JHGP5RNBYC" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> View Certificate</a></div>
+      </div>
+      <div class="section-header reveal" style="margin-top:2.8rem">
+        <h3 class="section-title" style="font-size:1.55rem">Training & Hands-on Practice</h3>
       </div>
       <div class="timeline">
-        <div class="timeline-item reveal"><h3>TryHackMe — Pre Security</h3><p>Completed foundational learning in cybersecurity, networking, Linux, Windows, and core security concepts through guided hands-on exercises.</p><div class="mini-list"><span class="mini-badge">Completed</span><span class="mini-badge">TryHackMe</span><span class="mini-badge">Foundations</span></div></div>
-        <div class="timeline-item reveal"><h3>Introduction to Cybersecurity</h3><p>Foundational cybersecurity concepts, threat awareness, security principles, and basic defensive practices.</p><div class="mini-list"><span class="mini-badge">Certificate</span><span class="mini-badge">Cybersecurity Fundamentals</span></div></div>
-        <div class="timeline-item reveal"><h3>Ethical Hacker</h3><p>Training in ethical hacking concepts, attack methodology, reconnaissance, vulnerability identification, and security testing fundamentals.</p><div class="mini-list"><span class="mini-badge">Certificate</span><span class="mini-badge">Ethical Hacking</span></div></div>
-        <div class="timeline-item reveal"><h3>eWPTX — Web Application Penetration Tester eXtreme</h3><p>Advanced web application penetration testing learning path covering methodology, reconnaissance, authentication, and injection testing.</p><div class="mini-list"><span class="mini-badge">Training / Exam Preparation</span><span class="mini-badge">INE</span><span class="mini-badge">Web Pentesting</span></div></div>
-        <div class="timeline-item reveal"><h3>Ongoing Offensive Security Practice</h3><p>Continued practical development through labs and exercises focused on web application testing, network enumeration, vulnerability validation, and reporting.</p><div class="mini-list"><span class="mini-badge">Burp Suite</span><span class="mini-badge">Nmap</span><span class="mini-badge">Metasploit</span><span class="mini-badge">Hands-on Labs</span></div></div>
+        <div class="timeline-item reveal"><h3>TryHackMe, Hack The Box & PortSwigger Web Security Academy</h3><p>Hands-on labs covering reconnaissance, enumeration, exploitation, access control, and practical security testing workflows.</p><div class="mini-list"><span class="mini-badge">50+ PortSwigger Labs</span><span class="mini-badge">OWASP Top 10</span><span class="mini-badge">Burp Suite</span></div></div>
+        <div class="timeline-item reveal"><h3>Ongoing Offensive Security Practice</h3><p>Continued practical development through labs and exercises focused on web application testing, network enumeration, vulnerability validation, and reporting.</p><div class="mini-list"><span class="mini-badge">Nmap</span><span class="mini-badge">Metasploit</span><span class="mini-badge">Linux</span><span class="mini-badge">Hands-on Labs</span></div></div>
       </div>
     </section>
+
+    
 
     <section id="profiles">
       <div class="section-header reveal">
