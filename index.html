@@ -326,6 +326,8 @@
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.show { opacity: 1; transform: translateY(0); }
 
+    @media (hover: none), (pointer: coarse) { body { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }
     @media (max-width: 980px) {
       .hero-grid, .about-wrapper, .contact-flex { grid-template-columns: 1fr; }
       .nav-inner { flex-wrap: wrap; justify-content: center; }
@@ -387,16 +389,16 @@
           <div class="typed-box"><span id="typed-text"></span><span class="cursor-blink">|</span></div>
           <p class="hero-description">Penetration Tester and Security Researcher focused on web application security, offensive security labs, attack surface analysis, and practical technical growth through hands-on testing and disciplined reporting.</p>
           <div class="hero-stats">
-            <div class="stat-card"><h3 data-counter="24">0</h3><p>Hands-on Security Labs</p></div>
-            <div class="stat-card"><h3 data-counter="18">0</h3><p>Technical Portfolio Assets</p></div>
-            <div class="stat-card"><h3 data-counter="100">0</h3><p>Relentless Learning Mode</p></div>
+            <div class="stat-card"><h3 50+</h3><p>Practice Labs Completed</p></div>
+            <div class="stat-card"><h3 5</h3><p>Certificates & Credentials</p></div>
+            <div class="stat-card"><h3 3+</h3><p>Core Testing Tools</p></div>
           </div>
           <div class="btn-group">
             <a href="#projects" class="btn btn-primary magnetic"><i class="fas fa-diagram-project"></i> View Work</a>
             <a href="Medhat-Elbaz-CV.pdf?v=20261118" target="_blank" rel="noopener noreferrer" class="btn btn-outline magnetic"><i class="fas fa-download"></i> Download CV</a>
             <a href="#contact" class="btn btn-outline magnetic"><i class="fas fa-paper-plane"></i> Contact</a>
           </div>
-          <div class="availability"><span class="status-dot"></span><span>Available for freelance security testing & technical collaboration</span></div>
+          <div class="availability"><span class="status-dot"></span><span>Open to junior penetration testing roles & technical collaboration</span></div>
         </div>
 
         <div class="hero-image reveal">
@@ -446,24 +448,7 @@
             <span class="skill-tag">Security Reporting</span>
             <span class="skill-tag">Network Enumeration</span>
           </div>
-          <div class="skills-bars">
-            <div class="skill-bar">
-              <div class="top"><span>Web Security Testing</span><span>92%</span></div>
-              <div class="bar-track"><div class="bar-fill" data-width="92%"></div></div>
-            </div>
-            <div class="skill-bar">
-              <div class="top"><span>Recon & Enumeration</span><span>88%</span></div>
-              <div class="bar-track"><div class="bar-fill" data-width="88%"></div></div>
-            </div>
-            <div class="skill-bar">
-              <div class="top"><span>Technical Reporting</span><span>90%</span></div>
-              <div class="bar-track"><div class="bar-fill" data-width="90%"></div></div>
-            </div>
-            <div class="skill-bar">
-              <div class="top"><span>Offensive Security Labs</span><span>86%</span></div>
-              <div class="bar-track"><div class="bar-fill" data-width="86%"></div></div>
-            </div>
-          </div>
+          <p class="skills-note">Skill levels are not self-scored; this section highlights current hands-on areas of practice.</p>
         </div>
       </div>
     </section>
@@ -485,7 +470,7 @@
       <div class="section-header reveal">
         <span class="section-eyebrow"><i class="fas fa-code"></i> Projects</span>
         <h2 class="section-title">Technical portfolio highlights with smarter presentation</h2>
-        <p class="section-subtitle">Static projects + optional live GitHub integration. If you want, I can later connect it to GitHub API too.</p>
+        <p class="section-subtitle">Lab-based practice and methodology samples. Repository links will be added as projects are published.</p>
       </div>
 
       <div class="projects-controls reveal">
@@ -545,8 +530,8 @@
     <section id="contact">
       <div class="section-header reveal">
         <span class="section-eyebrow"><i class="fas fa-paper-plane"></i> Contact</span>
-        <h2 class="section-title">Open to freelance work, collaboration, and serious opportunities</h2>
-        <p class="section-subtitle">This section is polished enough to look client-ready. You can connect it to Formspree later in 2 minutes.</p>
+        <h2 class="section-title">Open to junior penetration testing opportunities and collaboration</h2>
+        <p class="section-subtitle">For junior penetration testing opportunities, security testing collaboration, or professional inquiries.</p>
       </div>
       <div class="contact-flex reveal">
         <div class="contact-info">
@@ -569,13 +554,13 @@
 
         <div class="contact-form-wrap">
           <p class="form-title"><i class="fas fa-pen-fancy"></i> Quick Inquiry</p>
-          <form action="#" method="post" class="contact-form">
+          <form class="contact-form" id="contactForm">
             <input type="text" name="name" placeholder="Full name" required />
             <input type="email" name="email" placeholder="Email address" required />
             <textarea name="message" placeholder="Tell me about your project, collaboration, or opportunity..." required></textarea>
             <button type="submit" class="btn btn-primary magnetic"><i class="fas fa-paper-plane"></i> Send Message</button>
           </form>
-          <p class="form-note">🔐 To make this form work for real, connect it to Formspree / Netlify Forms / EmailJS.</p>
+          <p class="form-note">🔐 Submitting opens your email app with the message ready to send.</p>
         </div>
       </div>
     </section>
@@ -590,6 +575,20 @@
   <a href="#home" class="fab" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
 
   <script>
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const data = new FormData(contactForm);
+        const name = String(data.get('name') || '').trim();
+        const email = String(data.get('email') || '').trim();
+        const message = String(data.get('message') || '').trim();
+        const subject = encodeURIComponent('Portfolio inquiry from ' + name);
+        const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+        window.location.href = 'mailto:medhatelbaz2@gmail.com?subject=' + subject + '&body=' + body;
+      });
+    }
+
     // Preloader
     const bootLines = [
       '[ OK ] Initializing offensive security interface...',
